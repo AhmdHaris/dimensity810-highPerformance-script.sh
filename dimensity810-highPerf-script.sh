@@ -10,7 +10,10 @@ function print_warning {
 clear
 sleep 1
 
-echo " [ ~ ] Enable High Performance for Dimensity 810 "
+echo "[ ~ ] Enable High Performance for Dimensity 810 "
+echo
+sleep 1
+echo "[ - ] If you find an error, please report it in Issue"
 sleep 1
 print_warning "Warning! This script will give best performance experience & your battery will drain faster and your phone might be heating up unforeseen consequences"
 echo
@@ -19,9 +22,6 @@ print_warning "Please Do With Your Own Risk !"
 echo
 sleep 1
 print_warning "Please Execute The Script With Root Permission!"
-sleep 1
-echo 
-echo "[ - ] If you find an error, please report it in Issue"
 sleep 1
 echo
 
@@ -74,3 +74,15 @@ echo "core 0-5: $(cat /sys/devices/system/cpu/cpufreq/policy0/scaling_governor)"
 echo
 sleep 1
 echo "core 6-7: $(cat /sys/devices/system/cpu/cpufreq/policy6/scaling_governor)"
+
+sleep 1
+echo
+# Set CPU mode
+echo "Setting CPU mode..."
+echo 3 > /proc/cpufreq/cpufreq_power_mode
+echo 1 > /proc/cpufreq/cpufreq_cci_mode
+sleep 1
+# Display current modes
+echo "CPU Power mode: $(cat /proc/cpufreq/cpufreq_power_mode)"
+echo "CPU CCI mode: $(cat /proc/cpufreq/cpufreq_cci_mode)"
+echo
