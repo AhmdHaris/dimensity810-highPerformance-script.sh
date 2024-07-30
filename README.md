@@ -40,6 +40,6 @@ cd dimensity810-highPerformance-script.sh
 ```
 4. **Run The Script**
 ```
-bash dimensity810-highPerf-script.sh
+sudo bash dimensity810-highPerf-script.sh
 ```
 5. **Done**
