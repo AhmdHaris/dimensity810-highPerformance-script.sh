@@ -122,9 +122,27 @@ set_gpu_power_policy() {
   echo "$policy" > /sys/devices/platform/13000000.mali/power_policy
 }
 
+sleep 1
 # Set GPU power policy to always_on
 echo "Setting GPU power policy to always_on"
 set_gpu_power_policy always_on
 
+sleep 1
 # Verify GPU power policy
 echo "GPU power policy: $(cat /sys/devices/platform/13000000.mali/power_policy)"
+
+# Function to set CPU frequency
+set_cpu_freq_limits() {
+    cluster="$1"
+    freq="$2"
+    echo "$cluster $freq" > /proc/ppm/policy/hard_userlimit_max_cpu_freq
+    echo "$cluster $freq" > /proc/ppm/policy/hard_userlimit_min_cpu_freq
+}
+
+# Set big cluster frequency to 2400MHz
+echo "Locking big cluster to 2400MHz"
+set_cpu_freq_limits 1 2400000
+
+# Set little cluster frequency to 2000MHz
+echo "Locking little cluster to 2000MHz"
+set_cpu_freq_limits 0 2000000
