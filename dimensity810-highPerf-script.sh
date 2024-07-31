@@ -101,3 +101,17 @@ set_gpu_freq 1068000
 sleep 1
 # Verify GPU frequency
 echo "Current GPU frequency: $(cat /proc/gpufreq/gpufreq_opp_freq | cut -d, -f1) MHz"
+
+# Function to set CPU performance mode
+set_cpu_perf() {
+  mode="$1"
+  echo "$mode" > /sys/devices/system/cpu/perf/enable
+}
+sleep 1
+# Enable CPU performance mode
+echo "Enabling CPU performance mode..."
+set_cpu_perf 1
+
+# Verify CPU performance mode
+echo "CPU performance mode: $(cat /sys/devices/system/cpu/perf/enable)"
+echo
