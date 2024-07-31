@@ -146,6 +146,12 @@ set_gpu_power_policy always_on
 sleep 1
 # Verify GPU power policy
 echo "GPU power policy: $(cat /sys/devices/platform/13000000.mali/power_policy)"
+echo
+
+# Logcat
+echo Force stop logcat to reduce CPU hogging
+stop logd
+echo
 
 # Disable some debugging
 echo 0 > /sys/kernel/ccci/debug
