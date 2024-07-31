@@ -115,3 +115,16 @@ set_cpu_perf 1
 # Verify CPU performance mode
 echo "CPU performance mode: $(cat /sys/devices/system/cpu/perf/enable)"
 echo
+
+# Function to set GPU power policy
+set_gpu_power_policy() {
+  policy="$1"
+  echo "$policy" > /sys/devices/platform/13000000.mali/power_policy
+}
+
+# Set GPU power policy to always_on
+echo "Setting GPU power policy to always_on"
+set_gpu_power_policy always_on
+
+# Verify GPU power policy
+echo "GPU power policy: $(cat /sys/devices/platform/13000000.mali/power_policy)"
