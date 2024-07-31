@@ -162,3 +162,19 @@ set_cpu_freq_limits 1 2400000
 # Set little cluster frequency to 2000MHz
 echo "Locking little cluster to 2000MHz"
 set_cpu_freq_limits 0 2000000
+
+# Function to set APUs frequency
+set_apus_freq() {
+  value="$1"
+  echo "$value" > /sys/module/mmdvfs_pmqos/parameters/force_step
+}
+
+sleep 1
+# Set APUs frequency to 1
+echo "Setting APUs frequency to 1"
+set_apus_freq 1
+
+sleep 1
+# Verify APUs frequency
+echo "APUs frequency: $(cat /sys/module/mmdvfs_pmqos/parameters/force_step)"
+echo
