@@ -147,6 +147,9 @@ sleep 1
 # Verify GPU power policy
 echo "GPU power policy: $(cat /sys/devices/platform/13000000.mali/power_policy)"
 
+# Disable some debugging
+echo 0 > /sys/kernel/ccci/debug
+
 # Function to set CPU frequency
 set_cpu_freq_limits() {
     cluster="$1"
