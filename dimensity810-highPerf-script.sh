@@ -187,3 +187,25 @@ sleep 1
 # Verify APUs frequency
 echo "APUs frequency: $(cat /sys/module/mmdvfs_pmqos/parameters/force_step)"
 echo
+
+# Function to set TCP congestion control
+set_tcp_congestion_control() {
+    algo="$1"
+    echo "$algo" > /proc/sys/net/ipv4/tcp_congestion_control
+}
+
+sleep 1
+# Set TCP congestion control to bic
+echo "Setting TCP congestion control to bic"
+set_tcp_congestion_control bic
+
+sleep 1
+# Enable TCP low latency
+echo "Enabling TCP low latency"
+echo 1 > /proc/sys/net/ipv4/tcp_low_latency
+echo 3 > /proc/sys/net/ipv4/tcp_fastopen
+
+sleep 1
+# Verify TCP congestion control
+echo "TCP congestion control: $(cat /proc/sys/net/ipv4/tcp_congestion_control)"
+echo "TCP Fastopen: $(/proc/sys/net/ipv4/tcp_fastopen)"
