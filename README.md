@@ -28,6 +28,7 @@ CPU : Lock 2400MHz (A76), Lock 2000MHz (A55)
 *  I/O : mq-deadline (nearby real-time) **kernel with 4.19**
 *  I/O : deadline **kernel with 4.14** 
 *  VM : Clear RAM Cache aggressive (3/3)
+*  APUs : 
 
 ### **How To Install** (using Termux)
 1. **Give root/superuser permission to the app**
