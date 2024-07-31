@@ -54,6 +54,22 @@ echo "GED Modules enabled"
 sleep 1
 echo
 
+# PPM
+    echo PPM :
+	echo 1 > /proc/ppm/enabled
+	echo 0 1 > /proc/ppm/policy_status
+	echo 1 1 > /proc/ppm/policy_status
+	echo 2 1 > /proc/ppm/policy_status
+	echo 3 1 > /proc/ppm/policy_status
+	echo 4 1 > /proc/ppm/policy_status
+	echo 5 1 > /proc/ppm/policy_status
+	echo 6 1 > /proc/ppm/policy_status
+	echo 7 1 > /proc/ppm/policy_status
+	echo 8 0 > /proc/ppm/policy_status
+	echo 9 1 > /proc/ppm/policy_status
+	cat /proc/ppm/policy_status
+echo
+	
 # Function to set CPU governor
 set_governor() {
   governor="$1"
