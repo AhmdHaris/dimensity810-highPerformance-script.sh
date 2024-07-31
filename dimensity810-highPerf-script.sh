@@ -86,3 +86,18 @@ sleep 1
 echo "CPU Power mode: $(cat /proc/cpufreq/cpufreq_power_mode)"
 echo "CPU CCI mode: $(cat /proc/cpufreq/cpufreq_cci_mode)"
 echo
+
+# Function to set GPU frequency
+set_gpu_freq() {
+  frequency="$1"
+  echo "$frequency" > /proc/gpufreq/gpufreq_opp_freq
+}
+
+sleep 1
+# Set GPU frequency to 1068000
+echo "Locking GPU frequency to 1068000 MHz"
+set_gpu_freq 1068000
+
+sleep 1
+# Verify GPU frequency
+echo "Current GPU frequency: $(cat /proc/gpufreq/gpufreq_opp_freq | cut -d, -f1) MHz"
