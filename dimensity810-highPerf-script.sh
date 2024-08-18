@@ -47,6 +47,15 @@ function set_cpu_freq_limits() {
     echo "$cluster $freq" > /proc/ppm/policy/hard_userlimit_min_cpu_freq
 }
 
+function overvolt_core() {
+  core_type="$1"
+  offset="$2"
+
+  echo "Overvolting $core_type with offset $offset"
+  echo "$offset" > "/proc/eem/EEM_DET_$core_type/eem_offset"
+  cat "/proc/eem/EEM_DET_$core_type/eem_offset"
+}
+
 function set_apus_freq() {
     value="$1"
     echo "$value" > /sys/module/mmdvfs_pmqos/parameters/force_step
@@ -88,6 +97,11 @@ set_cpu_freq_limits 1 2400000
 
 echo "Locking little cluster to 2000MHz"
 set_cpu_freq_limits 0 2000000
+
+echo "Overvolting BIG Cores, LITTLE Cores, and CPU BUS"
+overvolt_core B 50
+overvolt_core L 50
+overvolt_core CCI 50
 
 echo "Setting APUs frequency to 1"
 set_apus_freq 1
