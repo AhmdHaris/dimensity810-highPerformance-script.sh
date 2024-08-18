@@ -102,5 +102,9 @@ echo 3 > /proc/sys/net/ipv4/tcp_fastopen
 echo "Force stop logcat to reduce CPU hogging"
 stop logd
 
+echo "Force stop logcat to reduce CPU hogging"
+stop thermal
+stop thermalloadalgod
+
 echo "Disable some debugging"
 echo 0 > /sys/kernel/ccci/debug
