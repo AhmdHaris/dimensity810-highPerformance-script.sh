@@ -119,7 +119,6 @@ stop logd
 echo "Force stop thermal"
 stop thermal
 stop thermalloadalgod
-stop thermald
 stop thermal_manager
 setprop init.svc.vendor.thermal-hal-2-0.mtk stopped
 setprop debug.thermal.throttle.support no
