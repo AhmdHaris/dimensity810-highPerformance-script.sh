@@ -75,7 +75,20 @@ print_warning "Please Execute The Script With Root Permission!"
 
 echo "Enabling GED Modules for Mediatek Dimensity..."
 set_ged_param 1 gx_game_mode
-# ... other GED parameters ...
+set_ged_param 1 gx_force_cpu_boost
+set_ged_param 1 boost_amp
+set_ged_param 1 boost_extra
+set_ged_param 1 boost_gpu_enable
+set_ged_param 1 enable_cpu_boost
+set_ged_param 1 enable_gpu_boost
+set_ged_param 1 enable_game_self_frc_detect
+set_ged_param 10 gpu_idle
+set_ged_param 100 cpu_boost_policy
+set_ged_param 0 ged_force_mdp_enable
+set_ged_param 1 ged_boost_enable
+set_ged_param 1 ged_smart_boost
+set_ged_param 1 gx_frc_mode
+set_ged_param 1 gx_boost_on
 
 echo "Setting CPU governor to performance..."
 set_governor performance
