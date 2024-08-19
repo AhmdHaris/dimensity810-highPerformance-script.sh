@@ -125,3 +125,6 @@ setprop debug.thermal.throttle.support no
 
 echo "Disable some debugging"
 echo 0 > /sys/kernel/ccci/debug
+
+# Force Maximum DRAM Freq
+echo 0 >/sys/devices/platform/10012000.dvfsrc/helio-dvfsrc/dvfsrc_req_ddr_opp
