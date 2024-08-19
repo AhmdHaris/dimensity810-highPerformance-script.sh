@@ -116,7 +116,7 @@ echo 3 > /proc/sys/net/ipv4/tcp_fastopen
 echo "Force stop logcat to reduce CPU hogging"
 stop logd
 
-echo "Force stop logcat to reduce CPU hogging"
+echo "Force stop thermal"
 stop thermal
 stop thermalloadalgod
 stop thermald
