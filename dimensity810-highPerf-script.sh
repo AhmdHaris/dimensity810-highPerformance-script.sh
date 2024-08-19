@@ -119,6 +119,10 @@ stop logd
 echo "Force stop logcat to reduce CPU hogging"
 stop thermal
 stop thermalloadalgod
+stop thermald
+stop thermal_manager
+setprop init.svc.vendor.thermal-hal-2-0.mtk stopped
+setprop debug.thermal.throttle.support no
 
 echo "Disable some debugging"
 echo 0 > /sys/kernel/ccci/debug
