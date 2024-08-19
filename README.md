@@ -20,7 +20,7 @@ CPU : Lock 2400MHz (A76), Lock 2000MHz (A55)
 *  GPU Power Policy : always_on
 * ~~Enable Game Touch Sampling~~
 * ~~Disable Oplus Limit TP for best experience gaming~~
-*  ~~Disable Thermal Throttle~~
+*  Disable Thermal 
 *  Enable GED Modules from MediaTek
 *  Stop logcat feature to reduce CPU Usage
 *  TCP : cubic (Ping more stable)
